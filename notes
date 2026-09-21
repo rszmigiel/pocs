@@ -1,0 +1,14 @@
+placement:
+    arbiter:
+      tolerations:
+        - key: node-role.kubernetes.io/arbiter
+          operator: Exists
+          effect: NoSchedule
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: topology.kubernetes.io/zone
+                  operator: In
+                  values:
+                    - arbiter-site
