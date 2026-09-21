@@ -12,3 +12,7 @@ placement:
                   operator: In
                   values:
                     - arbiter-site
+
+
+
+oc patch storagecluster ocs-storagecluster -n openshift-storage --type json --patch '[{ "op": "replace", "path": "/spec/enableCephTools", "value": true }]'
